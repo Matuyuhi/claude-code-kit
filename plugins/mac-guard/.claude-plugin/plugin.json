@@ -1,0 +1,8 @@
+{
+  "name": "mac-guard",
+  "version": "0.1.0",
+  "description": "macOS 向けの読み取り専用セキュリティ監査と、危険なコマンドを実行前に止める PreToolUse hook",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

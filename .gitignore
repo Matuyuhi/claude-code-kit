@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+__pycache__/
+
+# Claude Code のローカル個人設定
+.claude/settings.local.json

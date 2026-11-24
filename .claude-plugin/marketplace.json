@@ -1,0 +1,59 @@
+{
+  "name": "claude-code-kit",
+  "description": "Claude Code 用の skills / agents / hooks をテーマ別の plugin にまとめた marketplace",
+  "owner": {
+    "name": "matuyuhi"
+  },
+  "plugins": [
+    {
+      "name": "memory",
+      "source": "./plugins/memory",
+      "description": "セッションをまたぐ記憶（~/.claude/knowledge）の保存・検索・振り返り。/remember /recall /journal /reflect /sessions /start /now など"
+    },
+    {
+      "name": "git-workflow",
+      "source": "./plugins/git-workflow",
+      "description": "commit / push / PR を一言の指示で進める skill 群と、gh api の書き込みを確認に回す hook"
+    },
+    {
+      "name": "review",
+      "source": "./plugins/review",
+      "description": "PR レビュー（/review-pr）、コメント整理、PR からの知見抽出、Codex / Copilot での外部レビュー"
+    },
+    {
+      "name": "delegation",
+      "source": "./plugins/delegation",
+      "description": "検証コマンド実行・機械的な変更・仕様からの実装を受け持つ subagent"
+    },
+    {
+      "name": "guides",
+      "source": "./plugins/guides",
+      "description": "設計判断・説明の仕方・日本語の言葉遣い・Web UI / アクセシビリティの指針"
+    },
+    {
+      "name": "android",
+      "source": "./plugins/android",
+      "description": "Android エミュレータの操作（adb）と画面グラフ index、Android Studio の .idea 差分の修正"
+    },
+    {
+      "name": "mac-guard",
+      "source": "./plugins/mac-guard",
+      "description": "macOS 向けの読み取り専用セキュリティ監査と、危険なコマンドを実行前に止める PreToolUse hook"
+    },
+    {
+      "name": "usage-alert",
+      "source": "./plugins/usage-alert",
+      "description": "Toasts when the 5h / 7d rate limits or the context window cross a threshold, and raises an OS notification near the limit"
+    },
+    {
+      "name": "sessions-panel",
+      "source": "./plugins/sessions-panel",
+      "description": "Lists every running Claude Code session on this machine beside the chat and jumps to its terminal tab"
+    },
+    {
+      "name": "journal-before-compact",
+      "source": "./plugins/journal-before-compact",
+      "description": "Adds /jcompact, which runs the journal skill and then compacts, and ahead of auto-compaction once the context fills past a threshold"
+    }
+  ]
+}

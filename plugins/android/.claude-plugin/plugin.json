@@ -1,0 +1,8 @@
+{
+  "name": "android",
+  "version": "0.1.0",
+  "description": "Android エミュレータの操作（adb）と画面グラフ index、Android Studio の .idea 差分の修正",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

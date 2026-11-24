@@ -1,0 +1,8 @@
+{
+  "name": "delegation",
+  "version": "0.1.0",
+  "description": "検証コマンド実行・機械的な変更・仕様からの実装を受け持つ subagent",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

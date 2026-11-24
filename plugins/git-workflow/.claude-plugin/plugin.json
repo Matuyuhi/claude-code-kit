@@ -1,0 +1,8 @@
+{
+  "name": "git-workflow",
+  "version": "0.1.0",
+  "description": "commit / push / PR を一言の指示で進める skill 群と、gh api の書き込みを確認に回す hook",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

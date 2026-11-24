@@ -1,0 +1,8 @@
+{
+  "name": "review",
+  "version": "0.1.0",
+  "description": "PR レビュー（/review-pr）、コメント整理、PR からの知見抽出、Codex / Copilot での外部レビュー",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

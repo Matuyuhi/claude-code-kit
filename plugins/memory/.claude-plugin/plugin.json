@@ -1,0 +1,8 @@
+{
+  "name": "memory",
+  "version": "0.1.0",
+  "description": "セッションをまたぐ記憶（~/.claude/knowledge）の保存・検索・振り返り。/remember /recall /journal /reflect /sessions /start /now など",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

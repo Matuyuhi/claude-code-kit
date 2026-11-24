@@ -1,0 +1,8 @@
+{
+  "name": "guides",
+  "version": "0.1.0",
+  "description": "設計判断・説明の仕方・日本語の言葉遣い・Web UI / アクセシビリティの指針",
+  "author": {
+    "name": "matuyuhi"
+  }
+}

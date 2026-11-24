@@ -1,0 +1,6 @@
+{
+  "name": "journal-before-compact",
+  "version": "0.1.0",
+  "author": { "name": "matuyuhi" },
+  "description": "Adds /jcompact, which runs the journal skill and then compacts, and ahead of auto-compaction once the context fills past a threshold"
+}

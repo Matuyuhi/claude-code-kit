@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "c=$(jq -r '.tool_input.command // empty'); case \"$c\" in *\"git push\"*|*\"gh pr create\"*) echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"push / PR 前チェック: このセッションで pre-push-quality-checks skill（CI 相当のローカルチェック）を実行済みか確認する。未実行なら、この push を実行する前に Skill ツールで pre-push-quality-checks を呼んでエラー 0 件にしてから push する。\"}}';; esac",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/gh-api-guard.sh\" || echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"gh-api-guard.sh を実行できない\"}}'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
