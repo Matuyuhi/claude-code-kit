@@ -1,6 +1,6 @@
 {
   "name": "sessions-panel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": { "name": "matuyuhi" },
   "description": "Lists every running Claude Code session on this machine beside the chat and jumps to its terminal tab",
   "types": "./types/index.d.ts"

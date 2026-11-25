@@ -1,6 +1,6 @@
 ---
 name: android-index
-description: Android アプリの画面グラフ index（android-drive の goto / flow が LLM なしで再生するための ~/.android-drive/<package>/index.json）を、エミュレータを踏み歩いて作る・増やす手順。ユーザーが「index 作って」「画面マップ作って」「この画面も goto できるようにして」「index を更新して」と言った時、または android-drive の goto が「index に画面がありません」「経路がありません」で止まった時に使う。作るのは 1 回で、画面が増えた時に差分を足す。
+description: Android アプリの画面グラフ index（android-drive の goto / flow が LLM なしで再生するための ~/.android-drive/ 配下のパッケージ名ごとの index.json）を、エミュレータを踏み歩いて作る・増やす手順。ユーザーが「index 作って」「画面マップ作って」「この画面も goto できるようにして」「index を更新して」と言った時、または android-drive の goto が「index に画面がありません」「経路がありません」で止まった時に使う。作るのは 1 回で、画面が増えた時に差分を足す。
 ---
 
 # Android Index

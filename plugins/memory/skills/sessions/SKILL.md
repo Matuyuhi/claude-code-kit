@@ -1,6 +1,6 @@
 ---
 name: sessions
-description: 過去の Claude Code セッションを探索する。ユーザーが「どんなセッションがあったか」「あの作業どのセッションでやった？」「前にどうやって解決したっけ」のように過去の作業・経緯・手順を探したい時に使う。ジャーナル（~/.claude/knowledge/sessions/）→ 生 transcript（~/.claude/projects/*/<uuid>.jsonl）の順で探す。手動では「/sessions <キーワード>」。事実・慣習の検索は /recall。
+description: 過去の Claude Code セッションを探索する。ユーザーが「どんなセッションがあったか」「あの作業どのセッションでやった？」「前にどうやって解決したっけ」のように過去の作業・経緯・手順を探したい時に使う。ジャーナル（~/.claude/knowledge/sessions/）→ 生 transcript（~/.claude/projects/ 配下の jsonl）の順で探す。手動では「/sessions キーワード」。事実・慣習の検索は /recall。
 ---
 
 # /sessions — 過去セッションの探索

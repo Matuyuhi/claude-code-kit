@@ -1,6 +1,6 @@
 ---
 name: android-indexer
-description: "Android アプリの画面グラフ index（~/.android-drive/<package>/index.json）を、エミュレータを踏み歩いて作る・増やす専用エージェント。「index 作って」「この画面も goto できるようにして」「画面マップを更新して」のように、android-drive の goto / flow で LLM なしに再生するための下準備が要る時に使う。画面 dump を呼び出し元の文脈に流さず、追加した画面・辺・未探索の一覧だけを返す。判断・提案・修正は行わない。"
+description: "Android アプリの画面グラフ index（~/.android-drive/ 配下のパッケージ名ごとの index.json）を、エミュレータを踏み歩いて作る・増やす専用エージェント。「index 作って」「この画面も goto できるようにして」「画面マップを更新して」のように、android-drive の goto / flow で LLM なしに再生するための下準備が要る時に使う。画面 dump を呼び出し元の文脈に流さず、追加した画面・辺・未探索の一覧だけを返す。判断・提案・修正は行わない。"
 model: sonnet
 effort: medium
 tools: Bash, Read
