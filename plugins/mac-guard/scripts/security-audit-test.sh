@@ -3,7 +3,7 @@
 # 各検出が反応すること・何も仕込まない HOME では ALERT が出ないことを確かめる。
 # 仕込むのは名前と形だけを真似たダミー（中身は /usr/bin/true のコピーや文字列）で、何も実行しない。
 #
-#   使い方: bin/security-audit-test.sh
+#   使い方: scripts/security-audit-test.sh
 set -uo pipefail
 
 AUDIT="$(cd "$(dirname "$0")" && pwd)/security-audit.sh"

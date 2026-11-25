@@ -63,7 +63,7 @@ metadata:
 ## 5. 目次を作り直して報告する
 
 ```bash
-rebuild-index.sh
+"${CLAUDE_PLUGIN_ROOT}/scripts/rebuild-index.sh"
 ```
 
 保存先のパスと要約を 1 行で報告する。

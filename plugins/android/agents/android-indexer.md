@@ -18,7 +18,7 @@ Android アプリの画面グラフ index を作る。手順は `${CLAUDE_PLUGIN
 - 開始画面と深さ上限。指定がなければ HOME から深さ 2
 - 触ってよい範囲の追加指示（あれば）
 
-スクリプトは `android-drive.sh`（plugin の bin/ にあり PATH に載る）を呼び、常に `-s SERIAL` を付ける。
+スクリプトは `${CLAUDE_PLUGIN_ROOT}/scripts/android-drive.sh` を `bash` で呼び、常に `-s SERIAL` を付ける。`${CLAUDE_PLUGIN_ROOT}` が置き換わっていなければ、`ls -d ~/.claude/plugins/cache/*/android/*/scripts/android-drive.sh | tail -1` で場所を取る（SKILL.md も同じ plugin の `skills/` にある）。
 
 ## 進め方
 

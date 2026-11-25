@@ -60,7 +60,7 @@ for dirpath, dirnames, filenames in os.walk(root):
 
 lines = [
     '# Knowledge Index',
-    '<!-- bin/rebuild-index.sh により自動生成。手で編集しない -->',
+    '<!-- rebuild-index.sh により自動生成。手で編集しない -->',
     '',
     'ここは目次。内容を使う前に、必ず該当ファイル（~/.claude/knowledge/ 配下）を Read すること。',
     '保存: /remember（事実）・/journal（セッション記録） / 検索: /recall（事実）・/sessions（過去セッション）',
@@ -82,7 +82,7 @@ with open(os.path.join(root, 'INDEX.md'), 'w', encoding='utf-8') as f:
 # CLAUDE.md が常時 import する縮約版。global は全セッションで効く規則なので説明付き、他は名前だけ
 short = [
     '# Knowledge Index（縮約）',
-    '<!-- bin/rebuild-index.sh により自動生成。手で編集しない -->',
+    '<!-- rebuild-index.sh により自動生成。手で編集しない -->',
     '',
     'global 以外は名前だけ。説明付きの全目次は ~/.claude/knowledge/INDEX.md（/recall・/start が読む）。作業対象の repo・技術に該当しそうな名前があれば INDEX.md か本文を Read する。',
     '',
@@ -101,7 +101,7 @@ with open(os.path.join(root, 'INDEX-short.md'), 'w', encoding='utf-8') as f:
 
 slines = [
     '# Sessions Index',
-    '<!-- bin/rebuild-index.sh により自動生成。手で編集しない -->',
+    '<!-- rebuild-index.sh により自動生成。手で編集しない -->',
     '',
     '新しい順。各ファイルは ~/.claude/knowledge/sessions/ 配下。',
     '',

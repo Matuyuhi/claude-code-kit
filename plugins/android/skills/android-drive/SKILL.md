@@ -5,11 +5,12 @@ description: Android エミュレータを adb で操作・観察する（UI ツ
 
 # Android Drive
 
-`android-drive.sh`（plugin の `bin/` にあり、plugin を有効にすると PATH に載る）は adb と Python 3 の標準ライブラリだけで、Android の画面を観察・操作する。`layout` サブコマンドだけは Google 公式 `android` CLI があれば使える追加の観察手段で、無くても他は動く。`devices` 以外は、指定がなければ接続中の `emulator-*` が 1 台だけの時だけ実行できる。
+`android-drive.sh`（android plugin の `scripts/` にある。以下の例は `tool` 変数に入れて呼ぶ）は adb と Python 3 の標準ライブラリだけで、Android の画面を観察・操作する。`layout` サブコマンドだけは Google 公式 `android` CLI があれば使える追加の観察手段で、無くても他は動く。`devices` 以外は、指定がなければ接続中の `emulator-*` が 1 台だけの時だけ実行できる。
 
 ```bash
-android-drive.sh devices
-android-drive.sh -s emulator-5554 ui
+tool="${CLAUDE_PLUGIN_ROOT}/scripts/android-drive.sh"
+bash "$tool" devices
+bash "$tool" -s emulator-5554 ui
 ```
 
 実機は `-s SERIAL` を明示した時だけ操作できる。`ANDROID_SERIAL` はエミュレータの明示指定にも使えるが、実機には使わない。デフォルトはエミュレータ限定であり、複数接続時や実機だけの接続時は停止する。
@@ -22,7 +23,7 @@ android-drive.sh -s emulator-5554 ui
 4. 操作後は `wait 1`〜`wait 3` を挟んで `ui` を取り直し、結果を確認する。
 
 ```bash
-tool=$(command -v android-drive.sh)
+tool="${CLAUDE_PLUGIN_ROOT}/scripts/android-drive.sh"
 bash "$tool" -s emulator-5554 find お知らせ
 bash "$tool" -s emulator-5554 tap-text お知らせ
 bash "$tool" -s emulator-5554 wait 2

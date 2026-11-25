@@ -34,7 +34,7 @@ git diff "<ref>...HEAD" >| "$SCRATCH/copilot-review/diff.patch"
 
 diff が空なら Copilot を起動せず、Status を DID NOT RUN、Summary を「差分なし」にして返す。
 
-2. プロンプトをファイルに書き、ラッパー `copilot-run.sh review-diff` で起動する。フラグ（読み取り専用の許可・拒否）はラッパーが固定していて、ここでは渡さない
+2. プロンプトをファイルに書き、ラッパー `copilot-run.sh review-diff` で起動する。フラグ（読み取り専用の許可・拒否）はラッパーが固定していて、ここでは渡さない。ラッパーは review plugin の `scripts/` にある。下の `${CLAUDE_PLUGIN_ROOT}` が置き換わっていなければ、`RUN=$(ls -d ~/.claude/plugins/cache/*/review/*/scripts/copilot-run.sh | tail -1)` で場所を取る
 
 ```sh
 cat > "$SCRATCH/copilot-review/prompt.txt" <<EOF
@@ -56,10 +56,11 @@ cat > "$SCRATCH/copilot-review/prompt.txt" <<EOF
 ${FOCUS:+
 今回特に見る点: $FOCUS}
 EOF
-copilot-run.sh review-diff --cwd "$CWD" --diff "$SCRATCH/copilot-review/diff.patch" --prompt-file "$SCRATCH/copilot-review/prompt.txt"
+RUN="${CLAUDE_PLUGIN_ROOT}/scripts/copilot-run.sh"
+bash "$RUN" review-diff --cwd "$CWD" --diff "$SCRATCH/copilot-review/diff.patch" --prompt-file "$SCRATCH/copilot-review/prompt.txt"
 ```
 
-- ラッパーは `-s --allow-all-tools --deny-tool shell --deny-tool write --output-format text` に `-C <cwd>` と diff 置き場の `--add-dir` を付けて `copilot` を exec する（`copilot-run.sh show review-diff` で確認できる。review plugin の bin/ にあり PATH に載る）。`copilot` を直接呼ばない。ラッパーが stderr に出す `copilot-run[review-diff]: ...` の 1 行を Verification に写す
+- ラッパーは `-s --allow-all-tools --deny-tool shell --deny-tool write --output-format text` に `-C <cwd>` と diff 置き場の `--add-dir` を付けて `copilot` を exec する（`bash "$RUN" show review-diff` で確認できる）。`copilot` を直接呼ばない。ラッパーが stderr に出す `copilot-run[review-diff]: ...` の 1 行を Verification に写す
 - `--trust-folder` / `--allow-all-paths` / `COPILOT_ALLOW_ALL` はラッパーが付けない・拒否する（cwd や `--add-dir` 先の `.github/` の hooks・MCP を信頼済みとして読み込むため）。fork や第三者の PR の worktree を対象にする時は、呼び出し元が一言断ってから
 - Copilot の runtime は `~/.copilot` に書くので sandbox 内では動かない。実行を拒否されたら Status を DID NOT RUN にし、Failures に上の 2 ブロックをそのまま書いて返す（呼び出し元がユーザーに渡す）
 - timeout は 10 分。超えたら TIMED OUT

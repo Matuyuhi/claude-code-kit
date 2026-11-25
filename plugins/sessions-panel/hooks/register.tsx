@@ -108,7 +108,7 @@ function quoted(text: string) {
 
 // The session list ships in the memory plugin, whose cache path carries its version.
 function listTranscripts(home: string) {
-  const glob = `${quoted(`${home}/.claude/plugins/cache`)}/*/memory/*/bin/list-transcripts.py`
+  const glob = `${quoted(`${home}/.claude/plugins/cache`)}/*/memory/*/scripts/list-transcripts.py`
 
   return `python3 "$(ls -d ${glob} 2>/dev/null | tail -1)"`
 }

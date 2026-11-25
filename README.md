@@ -47,16 +47,16 @@ plugin をまたいで呼ぶもの（片方だけでも動くが、その手順�
 | 層 | 何をする | 動く契機 |
 |---|---|---|
 | `hooks/exec-guard.sh` | Claude Code の Bash / Write / Edit を実行前に見て、取得して実行・隔離属性の除去・常駐の設置・認証情報の持ち出し・痕跡消しを deny、依存追加・設定変更を ask にする。モデルは上書きできない | PreToolUse（plugin を有効にすると登録される） |
-| `bin/security-audit.sh` | 常駐・偽装・窃取・エージェント設定・サプライチェーンを読み取り専用で監査し、`~/.local/state/security-audit/latest.jsonl` に書く。読むのは `security-triage` skill | 手で実行 |
-| `bin/macguard.sh gate <file>` | dmg / pkg / app / 実行ファイルを開く前に署名・公証・VirusTotal（SHA-256 の照会だけ。ファイルは送らない）で判定し、OK なら開く | 手で実行 |
-| `bin/macguard.sh scan-downloads` | `~/Downloads` に落ちた quarantine 付きの対象を gate にかけ、BLOCK は `~/.local/state/macguard/hold/` へ退避して通知する | LaunchAgent（任意） |
-| `bin/macguard.sh watch-persistence` | 新規の常駐を検出し、`~/Library/LaunchAgents` の plist は bootout して退避、それ以外は通知する | LaunchAgent（任意） |
+| `scripts/security-audit.sh` | 常駐・偽装・窃取・エージェント設定・サプライチェーンを読み取り専用で監査し、`~/.local/state/security-audit/latest.jsonl` に書く。読むのは `security-triage` skill | 手で実行 |
+| `scripts/macguard.sh gate <file>` | dmg / pkg / app / 実行ファイルを開く前に署名・公証・VirusTotal（SHA-256 の照会だけ。ファイルは送らない）で判定し、OK なら開く | 手で実行 |
+| `scripts/macguard.sh scan-downloads` | `~/Downloads` に落ちた quarantine 付きの対象を gate にかけ、BLOCK は `~/.local/state/macguard/hold/` へ退避して通知する | LaunchAgent（任意） |
+| `scripts/macguard.sh watch-persistence` | 新規の常駐を検出し、`~/Library/LaunchAgents` の plist は bootout して退避、それ以外は通知する | LaunchAgent（任意） |
 
-VirusTotal の API key は Keychain の `macguard-virustotal` から読む（無いと照会せず WARN に倒れる）。`bin/macguard.sh install` は LaunchAgent を書くが、plist に書かれるのは plugin のキャッシュ上のパスなので、plugin を更新したら入れ直す。EDR が入っている端末では `install` を省き、hook と手動の `gate` / `watch-persistence` だけで使う。Downloads のスキャンと常駐の監視は EDR と重なるうえ、自作の LaunchAgent は監視ツールから攻撃者の常駐と区別がつかない（実際にクリーナー系アプリがマルウェアとして検知した）。
+VirusTotal の API key は Keychain の `macguard-virustotal` から読む（無いと照会せず WARN に倒れる）。`scripts/macguard.sh install` は LaunchAgent を書くが、plist に書かれるのは plugin のキャッシュ上のパスなので、plugin を更新したら入れ直す。EDR が入っている端末では `install` を省き、hook と手動の `gate` / `watch-persistence` だけで使う。Downloads のスキャンと常駐の監視は EDR と重なるうえ、自作の LaunchAgent は監視ツールから攻撃者の常駐と区別がつかない（実際にクリーナー系アプリがマルウェアとして検知した）。
 
 届かない所: hook の正規表現は変数で分割した難読化に負ける。ゲートは Downloads 以外に置かれたファイルを見ない。実行中のプロセスは止められない。
 
-テストは `bin/exec-guard-test.sh` / `bin/macguard-test.sh` / `bin/security-audit-test.sh`。
+テストは `scripts/exec-guard-test.sh` / `scripts/macguard-test.sh` / `scripts/security-audit-test.sh`。
 
 ## 自分で用意すると効くもの
 

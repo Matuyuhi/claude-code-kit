@@ -8,7 +8,7 @@ description: Android アプリの画面グラフ index（android-drive の goto 
 `android-drive.sh` の `index` サブコマンドで、アプリの画面グラフを `~/.android-drive/<package>/index.json` に記録する。LLM が担うのは「画面に名前を付ける」「anchors を選ぶ」「どこをタップするか決める」の 3 つだけで、anchors の実在確認・他画面との一意性・辺の実行検証・JSON の書き込みはツールが行う。ツールが拒否したものを `--no-verify` や `--update` で押し通さない。
 
 ```bash
-tool=$(command -v android-drive.sh)
+tool="${CLAUDE_PLUGIN_ROOT}/scripts/android-drive.sh"
 bash "$tool" index candidates
 bash "$tool" index add-screen NewsScreen --anchor text=お知らせ --anchor text=ニュース --anchor text=メッセージ --alias SCR-010
 bash "$tool" index add-edge HomeScreen NewsScreen --step "tap-desc お知らせ"

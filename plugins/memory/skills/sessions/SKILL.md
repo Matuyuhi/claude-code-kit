@@ -12,7 +12,7 @@ description: 過去の Claude Code セッションを探索する。ユーザー
 
 ### 2. 生 transcript の一覧から探す（ジャーナルに無い場合）
 ```
-list-transcripts.sh [絞り込み文字列]
+"${CLAUDE_PLUGIN_ROOT}/scripts/list-transcripts.sh" [絞り込み文字列]
 ```
 全セッションの「最終活動日時 | プロジェクト | タイトル（Claude Code が付けた ai-title。無ければ冒頭の依頼）| transcript パス」が新しい順で出る。`-l` でタイトルの下に冒頭の依頼も出る。絞り込みはタイトルと冒頭依頼の両方に当たる。
 

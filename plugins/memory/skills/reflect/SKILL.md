@@ -49,7 +49,7 @@ description: セッション終了前の振り返り。この会話全体で得�
 5. 承認されたものを `Edit` で追記する。`~/.claude/` 配下を別の場所への symlink にしている場合は、symlink 経由だと Edit が拒否されることがあるので、`readlink -f` で解決した実体パスに対して編集する
    - 既存のセクション構造・書き方に合わせる。合うセクションが無ければ新しく作る
    - skill に追記する時は、その skill の章立てに沿った位置に入れる
-   - knowledge に保存する時は、形式を /remember skill に合わせ、保存後に `rebuild-index.sh` を実行する
+   - knowledge に保存する時は、形式を /remember skill に合わせ、保存後に `"${CLAUDE_PLUGIN_ROOT}/scripts/rebuild-index.sh"` を実行する
 
 ## 3. 書き込み先の決め方
 
@@ -80,7 +80,7 @@ skill に合うか迷う時は `ls ~/.claude/skills/` で一覧を見て、descr
 この会話の学びを振り分けたら、過去のジャーナルに書いたまま skill に入っていない学びが残っていないかを見る。
 
 ```bash
-audit-carryover.sh --since <1〜2ヶ月前の YYYY-MM-DD>
+"${CLAUDE_PLUGIN_ROOT}/scripts/audit-carryover.sh" --since <1〜2ヶ月前の YYYY-MM-DD>
 ```
 
 出た行のうち「ルール・慣習として今後も効くもの」を、3 の表に従って skill / knowledge に移す。ジャーナルは作業記録であって参照先ではないので、そこに書いただけの学びは次のセッションでは効かない。

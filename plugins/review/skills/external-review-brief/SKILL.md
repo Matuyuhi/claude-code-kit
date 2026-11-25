@@ -95,7 +95,7 @@ wc -c "$OUT"
 ## 4. 渡し方
 
 - Codex（codex plugin）: `PLUGIN=$(ls -d ~/.claude/plugins/cache/openai-codex/codex/* | tail -1)` で plugin の場所を取り、`node "$PLUGIN/scripts/codex-companion.mjs" adversarial-review --wait --scope working-tree "$(cat "$OUT")"`（branch 全体なら `--scope branch --base <ref>`）。built-in の `review` は焦点文を受け取らないが、AGENTS.md と skills を自分で読むのでブリーフ無しで使ってよい。`adversarial-review` の既定の姿勢は「出荷を止める理由を探す」なので、上の「出さない指摘」節がそのまま抑制として働く
-- Copilot CLI: `copilot` を直接呼ばず、`copilot-run.sh review-diff --cwd <repo> --diff <patch> --prompt-file <f>` を使う。許可・拒否のフラグはラッパーが固定している。ブリーフを渡す時は、`$OUT` の後ろに差分の場所と指示を足したものを `--prompt-file` に渡す
+- Copilot CLI: `copilot` を直接呼ばず、`"${CLAUDE_PLUGIN_ROOT}/scripts/copilot-run.sh" review-diff --cwd <repo> --diff <patch> --prompt-file <f>` を使う。許可・拒否のフラグはラッパーが固定している。ブリーフを渡す時は、`$OUT` の後ろに差分の場所と指示を足したものを `--prompt-file` に渡す
 - Codex / Copilot を直接対話で使っている時: この skill を読んだら上の手順で `$OUT` を作り、自分への指示として読む
 
 ## 5. 返ってきた指摘の扱い（呼び出し元の仕事）

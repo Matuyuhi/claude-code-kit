@@ -3,7 +3,7 @@
 # JSON に詰めて hook に標準入力で渡し、返った permissionDecision を比べる。
 # コマンド文字列はデータとして hook に渡るだけで、このスクリプトも hook も実行はしない。
 #
-#   使い方: bin/exec-guard-test.sh
+#   使い方: scripts/exec-guard-test.sh
 set -uo pipefail
 
 HOOK="$(cd "$(dirname "$0")" && pwd)/../hooks/exec-guard.sh"
@@ -153,14 +153,14 @@ pass	Edit	~/.claude/knowledge/tech/foo.md
 # --- guard 自身のソース（repo 直接・symlink 経由・Bash 経由）---
 ask	Write	REPO/hooks/exec-guard.sh
 ask	Write	REPO/hooks/foo.sh
-ask	Edit	REPO/bin/macguard.sh
-ask	Edit	REPO/bin/security-audit.sh
+ask	Edit	REPO/scripts/macguard.sh
+ask	Edit	REPO/scripts/security-audit.sh
 pass	Edit	REPO/README.md
 pass	Edit	REPO/skills/security-triage/SKILL.md
 ask	Bash	sed -i '' 's/deny/pass/' REPO/hooks/exec-guard.sh
-ask	Bash	echo x > REPO/bin/macguard.sh
-ask	Bash	cp /tmp/x REPO/bin/security-audit.sh
-pass	Bash	bash REPO/bin/macguard-test.sh
+ask	Bash	echo x > REPO/scripts/macguard.sh
+ask	Bash	cp /tmp/x REPO/scripts/security-audit.sh
+pass	Bash	bash REPO/scripts/macguard-test.sh
 pass	Bash	cat REPO/hooks/exec-guard.sh
 pass	Bash	csrutil status
 pass	Bash	nvram -p

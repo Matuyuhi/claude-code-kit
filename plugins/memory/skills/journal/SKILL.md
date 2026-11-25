@@ -78,7 +78,7 @@ metadata:
 
 1. 既存ファイルを探す: `ls ~/.claude/knowledge/sessions/<今日の日付>-*` と、進行中なら `grep -l "status: in-progress" ~/.claude/knowledge/sessions/*.md`。同じ作業の記録があれば新規作成せず、そのファイルを更新する（「再開ポイント」は書き換え、他の節は追記）
 2. 会話全体（圧縮後なら summary と、それ以降の会話）を振り返ってテンプレートを埋める
-3. 確認を挟まずに Write / Edit で保存する（ローカルに書くだけで git で戻せる。依頼の時点で中身は任されている）。index は PostToolUse hook が再生成する。hook が無い環境では `rebuild-index.sh`（memory plugin の bin/）を実行する
+3. 確認を挟まずに Write / Edit で保存する（ローカルに書くだけで git で戻せる。依頼の時点で中身は任されている）。index は PostToolUse hook が再生成する。hook が無い環境では `"${CLAUDE_PLUGIN_ROOT}/scripts/rebuild-index.sh"` を実行する
 4. 保存先パスと、記録した要点を 2〜3 行で報告する
 
 ### いつ更新するか

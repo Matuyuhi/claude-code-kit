@@ -110,7 +110,7 @@ M. [project-slug / memory-name] 要約一行
 - knowledge に保存した時は目次を作り直す
 
   ```bash
-  rebuild-index.sh
+  "${CLAUDE_PLUGIN_ROOT}/scripts/rebuild-index.sh"
   ```
 
 - 何をどこに足したかを 1 行ずつ報告する

@@ -18,7 +18,7 @@ Android アプリを画面の状態に基づいて操作する。判断・提案
 - 対象 package
 - serial: 任意。実機では必須
 
-スクリプトは `android-drive.sh`（plugin の bin/ にあり PATH に載る）を使う。実機を操作する場合は必ず `-s SERIAL` を付ける。使い方の詳細は `${CLAUDE_PLUGIN_ROOT}/skills/android-drive/SKILL.md` を最初に読む。
+スクリプトは `${CLAUDE_PLUGIN_ROOT}/scripts/android-drive.sh` を `bash` で呼ぶ。`${CLAUDE_PLUGIN_ROOT}` が置き換わっていなければ、`ls -d ~/.claude/plugins/cache/*/android/*/scripts/android-drive.sh | tail -1` で場所を取る（下の SKILL.md も同じディレクトリの `../skills/android-drive/` にある）。実機を操作する場合は必ず `-s SERIAL` を付ける。使い方の詳細は `${CLAUDE_PLUGIN_ROOT}/skills/android-drive/SKILL.md` を最初に読む。
 
 ## 操作ループ
 

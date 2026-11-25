@@ -4,18 +4,18 @@
 # 唯一の副作用は accounts の sudo -k（NOPASSWD 判定のため sudo の timestamp を無効化する）。
 #
 #   使い方:
-#     bin/security-audit.sh                       # 既定セクションを実行。端末には ALERT / WARN / 新規だけ出し、
+#     scripts/security-audit.sh                       # 既定セクションを実行。端末には ALERT / WARN / 新規だけ出し、
 #                                                 # 全件は ~/.local/state/security-audit/latest.jsonl に書く
-#     bin/security-audit.sh --verbose             # ok / info も端末に出す
-#     bin/security-audit.sh --section persistence,network
+#     scripts/security-audit.sh --verbose             # ok / info も端末に出す
+#     scripts/security-audit.sh --section persistence,network
 #                                                 # 一部だけ走らせる。state ファイルは更新しない
-#     bin/security-audit.sh --html ~/audit.html   # HTML レポートも書き出す
-#     bin/security-audit.sh --no-color
-#     bin/security-audit.sh --strict              # ALERT があれば exit 1
-#     bin/security-audit.sh --json out.jsonl      # JSON Lines の書き出し先を変える（1 行 1 件、id は実行をまたいで安定）
-#     bin/security-audit.sh --baseline path.tsv   # 前回結果の置き場を変える（新規だけ [新規] で示し、今回の結果で上書き）
-#     bin/security-audit.sh --no-state            # state ファイル（latest.jsonl / baseline.tsv）を一切書かない
-#     bin/security-audit.sh --project-root ~/proj # projects / supplychain が走査する起点（既定 $HOME）
+#     scripts/security-audit.sh --html ~/audit.html   # HTML レポートも書き出す
+#     scripts/security-audit.sh --no-color
+#     scripts/security-audit.sh --strict              # ALERT があれば exit 1
+#     scripts/security-audit.sh --json out.jsonl      # JSON Lines の書き出し先を変える（1 行 1 件、id は実行をまたいで安定）
+#     scripts/security-audit.sh --baseline path.tsv   # 前回結果の置き場を変える（新規だけ [新規] で示し、今回の結果で上書き）
+#     scripts/security-audit.sh --no-state            # state ファイル（latest.jsonl / baseline.tsv）を一切書かない
+#     scripts/security-audit.sh --project-root ~/proj # projects / supplychain が走査する起点（既定 $HOME）
 #
 #   セクション: persistence artifacts accounts hardening sharing profiles network intercept apps
 #               versions browser ide tcc credentials agents projects supplychain / login updates

@@ -107,7 +107,7 @@ ASK = [
 
 # guard 自身（この hook・macguard・security-audit）の実体。書き換えは guard の無効化と同じなので ask
 repo = os.environ.get("GUARD_REPO") or ""
-GUARD_FILES = r"(?:hooks/[^/\s]+\.sh|bin/(?:macguard|security-audit)[^/\s]*\.sh)"
+GUARD_FILES = r"(?:hooks/[^/\s]+\.sh|scripts/(?:macguard|security-audit)[^/\s]*\.sh)"
 WRITE_VERB = r"(?:>+|sed\s+-[a-zA-Z]*i|perl\s+-[a-zA-Z]*[pi]|tee\b|cp\b|mv\b|rm\b|chmod\b|truncate\b|install\b|ln\b)"
 
 def is_guard_source(p):

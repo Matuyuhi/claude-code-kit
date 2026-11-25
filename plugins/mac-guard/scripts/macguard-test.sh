@@ -4,7 +4,7 @@
 # gate / scan-downloads / watch-persistence / release が期待どおりに動くことを確かめる。
 # 仕込むのは /usr/bin/true のコピーと空の plist だけで、何も実行しないし launchd にも登録しない。
 #
-#   使い方: bin/macguard-test.sh
+#   使い方: scripts/macguard-test.sh
 set -uo pipefail
 
 MG="$(cd "$(dirname "$0")" && pwd)/macguard.sh"

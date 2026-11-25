@@ -4,11 +4,11 @@
 # 変えたら末尾の「検証記録」も更新する。
 #
 #   使い方:
-#     bin/copilot-run.sh review-diff  --cwd <repo> --diff <patch>  [--prompt-file <f>]   # diff を読み取り専用でレビュー
-#     bin/copilot-run.sh investigate  --repo <path> [--repo <path> ...] [--prompt-file <f>]
+#     scripts/copilot-run.sh review-diff  --cwd <repo> --diff <patch>  [--prompt-file <f>]   # diff を読み取り専用でレビュー
+#     scripts/copilot-run.sh investigate  --repo <path> [--repo <path> ...] [--prompt-file <f>]
 #                                                                                         # 複数 repo を fleet で並列調査（読み取り専用）
-#     bin/copilot-run.sh implement    ...                                                 # 未検証。exit 2 で止まる
-#     bin/copilot-run.sh show <mode>                                                      # そのモードが渡すフラグを表示して終了
+#     scripts/copilot-run.sh implement    ...                                                 # 未検証。exit 2 で止まる
+#     scripts/copilot-run.sh show <mode>                                                      # そのモードが渡すフラグを表示して終了
 #
 #   プロンプトは --prompt-file か標準入力で渡す（引数に直接は書かせない。長文と引用符の事故を避ける）。
 #   実際に実行したコマンドを stderr に 1 行出すので、呼び出し元は Verification にそれを写せる。

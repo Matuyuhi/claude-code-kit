@@ -26,7 +26,7 @@
 
 - skills: `/remember`（事実 1 件）・`/recall`（検索）・`/journal`（作業記録）・`/reflect`（振り返り）・`/sessions`（過去セッション探索）・`/start`（作業の入口）・`/now`（現状まとめ）・`/promote-memory`（auto-memory の昇格）・`/compact-claude-md`（CLAUDE.md を情報を落とさずに縮める）
 - agent: `knowledge-searcher`
-- bin（plugin を有効にすると PATH に載る）:
+- scripts（skill からは `${CLAUDE_PLUGIN_ROOT}/scripts/<名前>` で呼ぶ）:
   - `rebuild-index.sh` — frontmatter から INDEX.md / INDEX-short.md / sessions/INDEX.md を再生成
   - `list-transcripts.sh` — 過去セッションの「最終活動日時 | プロジェクト | タイトル | transcript パス」一覧（端末から直接実行すると選んで再開できる）
   - `audit-carryover.sh` — ジャーナルに書いたまま skill に入っていない学びを洗う
